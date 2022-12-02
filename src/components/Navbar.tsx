@@ -1,29 +1,47 @@
 import React, {FC} from 'react'
-
+import {Link} from 'react-router-dom'
 import {MenuIcon, XIcon} from '@heroicons/react/outline'
 
 const Navbar: FC<{}> = () => {
   return (
-    <div className="w-screen h-[80px] z-10 bg-zinc-200 fixed drop-shadlow-lg">
-      <div className="px-2 flex justify-between items-center w-full h-full">
-        <div className="flex items-center">
-          <h1 className="text-3xl font-bold mr-4 sm:text-4xl">MovieList.</h1>
-          <nav>
-            <ul className="hidden md:flex">
-              <li>Home</li>
-              <li>About</li>
-              <li>MovieList</li>
-              <li>Contact</li>
-            </ul>
-          </nav>
-        </div>
-        <div className="hidden md:flex pr-4">
-          <button className="border-none bg-transparent text-black mr-4">Sign In</button>
-          <button className="px-8 py-3">Sign Up</button>
+    <nav className="bg-white">
+      <div className="flex md:flex-row flex-col py-6 items-center font-medium md:justify-between shadow-md w-full md:px-8 px-7 gap-10">
+        <p className="font-bold text-2xl cursor-pointer">MovieList.</p>
+        <ul className="flex md:flex-row flex-col uppercase items-center gap-6">
+          <Link to="/" className="px-8 inline-block">
+            Home
+          </Link>
+          <Link to="/" className="px-8">
+            About
+          </Link>
+          <Link to="/" className="px-8">
+            Service
+          </Link>
+          <Link to="/" className="px-8">
+            Contact
+          </Link>
+        </ul>
+        {/*Mobile Navbar*/}
+        {/* <ul className="md:hidden flex bg-white w-full flex-col gap-5">
+          <Link to="/" className="px-3 inline-block">
+            Home
+          </Link>
+          <Link to="/" className="px-3">
+            About
+          </Link>
+          <Link to="/" className="px-3">
+            Service
+          </Link>
+          <Link to="/" className="px-3">
+            Contact
+          </Link>
+        </ul> */}
+
+        <div className="text-3xl absolute cursor-pointer md:hidden right-7 top-7">
+          <MenuIcon className="w-5"/>
         </div>
       </div>
-      <MenuIcon className="w-5"/>
-    </div>
+    </nav>
   )
 }
 
